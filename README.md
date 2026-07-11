@@ -7,22 +7,25 @@ como entre sistemas.
 
 ## Características 
 
-El programa esta preparado para convertir las siguientes unidades:
+- El programa esta preparado para convertir las siguientes unidades:
 
-Sistema internacional: kilómetros, hectómetros, decametros, metros, decímetros, centímetros, milímetros.
+- Sistema internacional: kilómetros, hectómetros, decametros, metros, decímetros, centímetros, milímetros.
 
-Sistema anglosajon: pulgadas, pies, yardas, millas.
+- Sistema anglosajon: pulgadas, pies, yardas, millas.
 
-## Instalación 
-Se necesita de una consola para poderse ejecutar el archivo .py
+## Ejecución 
+Se necesita tener descargado el python 3 y una consola para poder ejecutarlo
+
+Si lo va a ejecutar en un dispositivo movil cómo teléfonos o tablets necesita descargar
+pydroid3 en la play store
 
 ## Contribución 
 
 Este proyecto fue realizado gracias a la contribución de los estudiantes de la uptag 
 sección informatica:
 
-Gustavo Noguera   
-Marlon Valles  
-Isaac Soto  
-Luis Pinzón   
-Jean Prado  
+- Gustavo Noguera   
+- Marlon Valles  
+- Isaac Soto  
+- Luis Pinzón   
+- Jean Prado  
