@@ -1,58 +1,5 @@
-def mostrar_resultado(valor, valor_final, sufijo1, sufijo2):
-    """
-    muestra el resultado final de la conversion de un valor de una unidad a otra unidad de longitud
-    
-    PARAMETROS
-    ----------
-    
-    valor
-        es el valor ingresado por el usuario
-    
-    valor_final
-        el resultado
-    
-    sufijo1
-        es el numero de la posicion dentro de los arreglos que se va a usar para acompañar el valor al final de este para indicar su unidad
-    
-    sufijo2
-        es el numero de la posicion dentro de los arreglos que se va a usar para acompañar el valor_final al final de este para indicar su unidad
-    
-    Retorna
-    ----------
-        no retorna nada
-    
-    """
-    
-    sufijoIs = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
-
-    sufijoAn = ["in", "f", "yd", "mi"]
-
-    nombreIs = ["kilometros", "hectometros", "decametros", "metros", "decimetros", "centimetros", "milimetros"]
-
-    nombreAn = ["pulgadas", "pies", "yardas", "millas"]
-
-    #Apartir de aqui, se van cambiando los valores numericos por cadenas de texto, que estan guardadas dentro de arreglos
-    if sufijo1 > len(sufijoIs):
-        nombre1 = nombreAn[sufijo1 - len(nombreIs) - 1]
-        sufijo1 = sufijoAn[sufijo1 - len(sufijoIs) - 1]
-
-
-    else:
-        nombre1 = nombreIs[sufijo1 - 1]
-        sufijo1 = sufijoIs[sufijo1 - 1]
-
-    if sufijo2 > len(sufijoIs):
-        nombre2 = nombreAn[sufijo2 - len(nombreIs) - 1]
-        sufijo2 = sufijoAn[sufijo2 - len(sufijoIs) - 1]
-
-
-    else:
-        nombre2 = nombreIs[sufijo2 - 1]
-        sufijo2 = sufijoIs[sufijo2 - 1]
-
-    print("De "+nombre1+" a "+nombre2+".","\n"+str(valor) + sufijo1, "son iguales a", str(valor_final) + sufijo2)
-
-
+#Anteriormente Esta funcion aceptaba numeros negativos a la hora de recibir el valor a convertir
+#Ahora no los acepta y avisa al usuario de este error
 def validar_entrada(mensaje, parametro1, parametro2, tipo):
     """
     Recibe la entrada de datos que ingrese el usuario, valida si el dato entra en los requerimientos y retorna este dato
@@ -78,9 +25,8 @@ def validar_entrada(mensaje, parametro1, parametro2, tipo):
     ----------
     La entrada del usuario ya validada
     """
-    
+    print("-"*100)
     while True:
-        
         try:
         
             if tipo == 1:
@@ -90,21 +36,58 @@ def validar_entrada(mensaje, parametro1, parametro2, tipo):
                     break
         
                 else:
-                    print("\npor favor, ingrese un numero valido", "(" + str(parametro1), "-", str(parametro2) + ")")
+                    print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero valido", "(" + str(parametro1), "-", str(parametro2) + ")","\n"+"-"*100)
                     entrada = "f"
         
             elif tipo == 2:
                 entrada = float(input(mensaje))
+                if entrada >= 0:
+                    break
+        
+                else:
+                    print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero psitivo valido valido","\n"+"-"*100)
+                    entrada = "f"
         
         except ValueError:
-            print("\npor favor, ingrese un numero valido")
+            print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero valido","\n"+"-"*100)
             entrada = "f"
             
-        #mientras que no se haya realizado ningun error al ingresar el dato, ya no se repetira el bucle
         if entrada != "f":
+            print("-"*100)
             break
-    
     return entrada
+
+#Antes esta funcion mostraba los resultados
+#Viendo que era algo innecesario para ser una funcion fue cambiada para darle un mejor uso y darle al usuario informacion extra
+def devolver_cadena(cadena, cadenaIs, cadenaAn):
+    """
+    Cambia el valor entero del dato de tipo entero a una cadena de caracteres, sean nombres o sufijos
+    
+    PARAMETROS
+    ----------
+    cadena
+        el valor de esta variable va a ser cambiado por una cadena de testo segun su valor
+        
+    cadenaIs
+        es la lista de cadenas de caracteres del sistema internacional (nombres o sufijos) cual se utilizara para intercambiar el valor de dato
+            tambien sirve de limite para asignar las cadenas de texto del sistema anglosajon
+    
+    cadenaAn
+        es la lista de cadenas de caracteres del sistema anglosajon (nombres o sufijos) cual se utilizara para intercambiar el valor de dato
+
+    Retorna
+    ----------
+        retorna el dato con su cadena asignada
+    """
+
+    #Apartir de aqui, se van cambiando los valores numericos por cadenas de texto, que estan guardadas dentro de arreglos
+    if cadena > len(cadenaIs):
+        cadena = cadenaAn[cadena - len(cadenaIs) - 1]
+
+
+    else:
+        cadena = cadenaIs[cadena - 1]
+    return cadena
 
 
 def convertir_unidadis(valor_final, unidad1, unidad2, unidad):
@@ -139,7 +122,7 @@ def convertir_unidadis(valor_final, unidad1, unidad2, unidad):
 
     unidad2 = unidad[unidad2 - 1]
 
-    while True:
+    while unidad1 != unidad2:
     
         if unidad1 > unidad2:
             unidad1 = unidad1 / 10
@@ -149,13 +132,10 @@ def convertir_unidadis(valor_final, unidad1, unidad2, unidad):
             unidad1 = unidad1 * 10
             valor_final = valor_final / 10
     
-        elif unidad1 == unidad2:
-            break
-    
     return valor_final
 
 
-def convertir_unidad_an(valor_final, unidad1, unidad2, unidad):
+def convertir_unidadan(valor_final, unidad1, unidad2, unidad):
     """
     Recibe el valor ingresado por el usuario y lo transforma segun sus indicaciones(parametros)
     
@@ -178,7 +158,8 @@ def convertir_unidad_an(valor_final, unidad1, unidad2, unidad):
             Los valores de los arreglos deben de estar ordenados correctamente(segun el sistema anglosajon)
             
             La cantidad de datos maxima debe ser menor a diferencia de la que puede ser el maximo que tiene unidad1 y unidad2 en uno
-            por ejemplo, unidad1 y unidad2 su maximo puede ser 4, y la cantidad de datos dentro del arreglo debe ser menor en 1, 3.
+            por ejemplo, unidad1 y unidad2 pueden tener un maximo de 4 opciones
+            y la cantidad de datos dentro del arreglo debe ser menor en 1, 3.
     Retorna
     ----------
     La el valor ingresado por el usuario pero ya convertido a la unidad que eligio
@@ -187,7 +168,7 @@ def convertir_unidad_an(valor_final, unidad1, unidad2, unidad):
     unidad1 = unidad1 - 1
     unidad2 = unidad2 - 1
 
-    while True:
+    while unidad1 != unidad2:
     
         if unidad1 > unidad2:
             unidad1 = unidad1 - 1
@@ -197,19 +178,25 @@ def convertir_unidad_an(valor_final, unidad1, unidad2, unidad):
             valor_final = valor_final / unidad[unidad1]
             unidad1 = unidad1 + 1
 
-        elif unidad1 == unidad2:
-            break
-
     return valor_final
 
 
+    
 def main():
-    while True:
-        
+    while True:    
+        #unidades del sistema internacional (kilometro, hectometro, decametro, metro, decimetro, centimetro, milimetro)
         unidadis = [10 ** 3, 10 ** 2, 10 ** 1, 10 ** 0, 10 ** -1, 10 ** -2, 10 ** -3]
+        nombreIs = ["Kilometros", "Hectometros", "Decametros", "Metros", "Decimetros", "Centimetros", "Milimetros"]
+        sufijoIs = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
         
+        #unidades del sistema anglosajon (pulgada, pies, yardas, millas)
         unidadan = [12, 3, 1760]
-
+        nombreAn = ["Pulgadas", "Pies", "Yardas", "Millas"]
+        sufijoAn = ["in", "f", "yd", "mi"]
+        
+        #valores de conversion entre los dos sistemas 
+        #para pulgada, pies y yardas los valores estan convertidos en centimetros
+        #para millas lo el valor esta convertido en kilometros
         unidadcon = [2.54, 30.48, 91.44, 1.609]
         
         #establesco el limite que se utilizara como parametro más adelante
@@ -218,63 +205,81 @@ def main():
         limite_an=limite_is+(len(unidadan)+1)
         limite_op = len(unidadis) + len(unidadan) + 2
         
-        listaUnidad = """unidades del sistema internacional                      unidades del sistema anglosajon
+        listaUnidad = """
+unidades del sistema internacional                      unidades del sistema anglosajon
 01|kilometro/km            05|decimetro/dm              08|pulgada/In            11|millas/mi
 02|hectometro/hm           06|centimetro/cm             09|Pies/f                12|Salir
 03|decametro/dam           07|milimetro/mm              10|Yardas/yd  
 04|metro/m
+----------------------------------------------------------------------------------------------------
 """
 
-        print("Convertidor de unidades de longitud\n")
-        print(listaUnidad)
-        unidadEntrada = sufijo1 = validar_entrada(mensaje="\nSeleccione la unidad que quiere convertir: ", parametro1=1,
-                                                  parametro2=limite_op, tipo=1)
+        print("\n"+"-"*100)
+        print(" "*30+"Convertidor de unidades de longitud\n")
+        
 
+        unidadEntrada = sufijoEntrada = nombreEntrada = validar_entrada(mensaje=listaUnidad+"Seleccione la unidad que quiere convertir: ", parametro1=1,
+                                                                        parametro2=limite_op, tipo=1)
+        
+        print("-"*100)
         if unidadEntrada == limite_op:
-            print("\nPrograma finalizado")
-            break
-    
-        print(listaUnidad)
-        unidadSalida = sufijo2 = validar_entrada(mensaje="\nSeleccione la unidad en que la va a convertir: ",
-                                                 parametro1=1, parametro2=limite_op, tipo=1)
-
-        if unidadSalida == limite_op:
-            print("\nPrograma finalizado")
+            print("\n"+"-"*100)
+            print("\n"+"/"*41+"Programa finalizado"+"/"*40)
+            print("\n"+"-"*100)
             break
         
-        """
-        evalua si el programa requiere llamar cual funcion o usar cual proceso 
-        o si el requisito de igualda entre unidades elegidas por el usuario se cumple
-         
-        """
-        valor = validar_entrada(mensaje="\ningrese el valor que quieres convertir ", parametro1=1, parametro2=limite_op,
+        nombreEntrada = devolver_cadena(cadena= nombreEntrada, cadenaIs= nombreIs, cadenaAn= nombreAn)
+        sufijoEntrada = devolver_cadena(cadena= sufijoEntrada, cadenaIs= sufijoIs, cadenaAn= sufijoAn)
+    
+
+        unidadSalida = sufijoSalida = nombreSalida = validar_entrada(mensaje=listaUnidad+"\nDe "+nombreEntrada+" a cual otra unidad la desea convertir: ",
+                                                                    parametro1=1, parametro2=limite_op, tipo=1)
+        
+        print("-"*100)
+        if unidadSalida == limite_op:
+            print("\n"+"-"*100)
+            print("\n"+"/"*41+"Programa finalizado"+"/"*40)
+            print("\n"+"-"*100)
+            break
+        
+        nombreSalida = devolver_cadena(cadena= nombreSalida, cadenaIs= nombreIs, cadenaAn= nombreAn)
+        sufijoSalida = devolver_cadena(cadena= sufijoSalida, cadenaIs= sufijoIs, cadenaAn= sufijoAn)
+        
+        #evalua sí el programa requiere llamar cual funcion o usar cual proceso 
+        #o si el requisito de igualda entre unidades elegidas por el usuario se cumple
+        
+        valor = validar_entrada(mensaje="\nIngrese el valor que quieres convertir de "+nombreEntrada+" a "+nombreSalida+": ", parametro1=1, parametro2=limite_op,
                                 tipo=2)
+        print("-"*100)
         
         if unidadEntrada==unidadSalida:
             valorFinal= valor
-            pass
         
         #conversion interna (sistema internacional)
         elif (1 <= unidadEntrada <= limite_is) and (1 <= unidadSalida <= limite_is):
-            valorFinal = convertir_unidadis(valor, unidadEntrada, unidadSalida, unidadis)
+            valorFinal = convertir_unidadis(valor_final=valor, unidad1=unidadEntrada, unidad2=unidadSalida, unidad=unidadis)
 
         #conversion interna (sistema anglosajon)
         elif ( (limite_is+1) <= unidadEntrada <= limite_an) and ( (limite_is+1) <= unidadSalida <= limite_an):
-            valorFinal = convertir_unidad_an(valor, (unidadEntrada - 7), (unidadSalida - 7), unidadan)
+            valorFinal = convertir_unidadan(valor_final=valor, unidad1=(unidadEntrada - 7), unidad2=(unidadSalida - 7), unidad=unidadan)
 
         #conversion cruzada o mixta (sistema internacional a sistema anglosajon)
         elif (1 <= unidadEntrada <= limite_is) and ( (limite_is+1) <= unidadSalida <= limite_an):
             
             #dependiendo de la unidad, esta se puede transformar en alguna de las diferentes unidades del sistema anglosajos
             if unidadSalida == 11:
-                #el dato de la unidad de salida tiene que concordar con la posicion del valor 10**3 que no hayan errores
-                #esto aplica es para milla 
-                valorFinal = convertir_unidadis(valor, unidadEntrada, 1, unidadis)
+                #El dato de la unidad2 de la funcion tiene que concordar con la posicion del valor 10**3 en la lista, contando a partir de 1,unidadis 
+                #para que no hayan errores
+                
+                #Esto aplica es para milla 
+                valorFinal = convertir_unidadis(valor_final=valor, unidad1=unidadEntrada, unidad2=1, unidad=unidadis)
 
             else:
-                #el dato de la unidad de salida tiene que concordar con la posicion del valor 10**-2 que no hayan errores 
-                #esto aplica es para pulgadas, pies y yardas
-                valorFinal = convertir_unidadis(valor, unidadEntrada, 6, unidadis)
+                #El dato de la unidad2 de la funcion tiene que concordar con la posicion del valor 10**-2 en la lista, contando a partir de 1, unidadis 
+                #para que no hayan errores 
+                
+                #Esto aplica es para pulgadas, pies y yardas
+                valorFinal = convertir_unidadis(valor_final=valor, unidad1=unidadEntrada, unidad2=6, unidad=unidadis)
                 
             valorFinal = valorFinal / unidadcon[unidadSalida -(limite_is) -1]
 
@@ -287,24 +292,32 @@ def main():
 
 
             if unidadEntrada == 11:
-                #esto aplica es para milla 
+                #esto aplica es para milla
+                
+                #El dato de la unidad de entrada tiene que concordar con la posicion del valor 10**3 de la lista, contando a partir de 1, unidadis 
+                #para que no hayan errores
                 unidadEntrada = 1
 
             else:
-                #esto aplica es para pulgadas, pies y yardas
+                #esto aplica es para pulgadas, pies y 
+                
+                #El dato de la unidad de entrada tiene que concordar con la posicion del valor 10**-2 en la lista, contando a partir de 1, unidadis 
+                #para que no hayan errores 
                 unidadEntrada = 6
 
-            valorFinal = convertir_unidadis(valorFinal, unidadEntrada, unidadSalida, unidadis)
-            
-        mostrar_resultado(valor=valor, valor_final=valorFinal, sufijo1=sufijo1, sufijo2=sufijo2)
+            valorFinal = convertir_unidadis(valor_final=valorFinal, unidad1=unidadEntrada, unidad2=unidadSalida, unidad=unidadis)
         
-        opcion = validar_entrada(mensaje="""1|ir al menu
+        print("De "+nombreEntrada+" a "+nombreSalida+".","\n\n"+str(valor) + sufijoEntrada, "es igual a", str(valorFinal) + sufijoSalida)  
+        
+        opcion = validar_entrada(mensaje="""1|Ir al menu
 2|Salir
-
-seleccione una de las siguientes opciones""", parametro1=1, parametro2=2, tipo=1)
+----------------------------------------------------------------------------------------------------
+Seleccione una de las siguientes opciones: """, parametro1=1, parametro2=2, tipo=1)
         
         if opcion == 2:
-            print("\nPrograma finalizado")
+            print("\n"+"-"*100)
+            print("\n"+"/"*41+"Programa finalizado"+"/"*40)
+            print("\n"+"-"*100)
             break
 
 main()
