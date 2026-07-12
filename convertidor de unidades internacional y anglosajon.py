@@ -261,7 +261,7 @@ unidades del sistema internacional                      unidades del sistema ang
 
         #conversion interna (sistema anglosajon)
         elif ( (limite_is+1) <= unidadEntrada <= limite_an) and ( (limite_is+1) <= unidadSalida <= limite_an):
-            valorFinal = convertir_unidadan(valor_final=valor, unidad1=(unidadEntrada - 7), unidad2=(unidadSalida - 7), unidad=unidadan)
+            valorFinal = convertir_unidadan(valor_final=valor, unidad1=(unidadEntrada - limite_is), unidad2=(unidadSalida - limite_is), unidad=unidadan)
 
         #conversion cruzada o mixta (sistema internacional a sistema anglosajon)
         elif (1 <= unidadEntrada <= limite_is) and ( (limite_is+1) <= unidadSalida <= limite_an):
