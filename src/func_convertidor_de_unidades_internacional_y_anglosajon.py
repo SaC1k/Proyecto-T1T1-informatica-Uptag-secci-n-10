@@ -54,7 +54,7 @@ def validar_entrada(mensaje, parametro1, parametro2, tipo):
                     break
         
                 else:
-                    print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero valido", "(" + str(parametro1), "-", str(parametro2) + ")","\n"+"-"*100)
+                    print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero valido...", "(" + str(parametro1), "-", str(parametro2) + ")","\n"+"-"*100)
                     entrada = "f"
         
             elif tipo == 2:
@@ -63,11 +63,11 @@ def validar_entrada(mensaje, parametro1, parametro2, tipo):
                     break
         
                 else:
-                    print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero psitivo valido valido","\n"+"-"*100)
+                    print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero positivo valido...","\n"+"-"*100)
                     entrada = "f"
         
         except ValueError:
-            print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero valido","\n"+"-"*100)
+            print("-"*100+"\n"+"ERROR","\nPor favor, ingrese un numero valido...","\n"+"-"*100)
             entrada = "f"
             
         if entrada != "f":
@@ -230,25 +230,22 @@ def convertidor_de_unidades_internacional_y_anglosajon():
         limite_op = len(unidadis) + len(unidadan) + 2
         
         listaUnidad = f"""
-Unidades del Sistema Internacional                      Unidades del Sistema Anglosajon
-01|kilometro/km            05|decimetro/dm              08|pulgada/In           11|millas/mi
-02|hectometro/hm           06|centimetro/cm             09|Pies/f               13|Salir
-03|decametro/dam           07|milimetro/mm              10|Yardas/yd
-04|metro/m
+Unidades del Sistema Internacional                          Unidades del Sistema Anglosajon
+01 | Kilometro/km            05 | Decimetro/dm              08 | Pulgada/In           11 | Millas/mi
+02 | Hectometro/hm           06 | Centimetro/cm             09 | Pies/f               12 | Salir del Convertidor de unidades de longitud.
+03 | Decametro/dam           07 | Milimetro/mm              10 | Yardas/yd
+04 | Metro/m
 ----------------------------------------------------------------------------------------------------
 """
 
         print("\n"+"-"*100)
-        print(" "*30+"Convertidor de unidades de longitud\n")
+        print(" "*30+"Convertidor de unidades de longitud")
 
         unidadEntrada = sufijoEntrada = nombreEntrada = validar_entrada(mensaje=listaUnidad+"Seleccione la unidad que quiere convertir: ", parametro1=1, parametro2=limite_op, tipo=1)
 
         print("-"*100)
     
         if unidadEntrada == limite_op:
-            print("\n"+"-"*100)
-            print("\n"+"/"*41+"Programa finalizado"+"/"*40)
-            print("\n"+"-"*100)
             break
 
         nombreEntrada = devolver_cadena(cadena= nombreEntrada, cadenaIs= nombreIs, cadenaAn= nombreAn)
@@ -259,9 +256,6 @@ Unidades del Sistema Internacional                      Unidades del Sistema Ang
         print("-"*100)
 
         if unidadSalida == limite_op:
-            print("\n"+"-"*100)
-            print("\n"+"/"*41+"Programa finalizado"+"/"*40)
-            print("\n"+"-"*100)
             break
         
         nombreSalida = devolver_cadena(cadena= nombreSalida, cadenaIs= nombreIs, cadenaAn= nombreAn)
@@ -323,16 +317,13 @@ Unidades del Sistema Internacional                      Unidades del Sistema Ang
         print("De "+nombreEntrada+" a "+nombreSalida+".","\n\n"+str(valor) + sufijoEntrada, "es igual a", str(valorFinal) + sufijoSalida)  
         
         opcion = validar_entrada(mensaje="""
-                                1|Ir al menu
-                                2|Salir
+                                1 | Ir al menu.
+                                2 | Salir del convertidor de longitudes.
 ----------------------------------------------------------------------------------------------------
 Seleccione una de las siguientes opciones: """, 
 parametro1=1, parametro2=2, tipo=1)
 
         if opcion == 2:
-            print("\n"+"-"*100)
-            print("\n"+"/"*41+"Programa finalizado"+"/"*40)
-            print("\n"+"-"*100)
             break
 
 ### Comprobación de main ###
