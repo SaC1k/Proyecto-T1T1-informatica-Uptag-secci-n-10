@@ -80,6 +80,10 @@ def convertidor_tiempo():
         # Pedir la cantidad a convertir
         try:
             cantidad = float(input("Ingresa la cantidad a convertir: "))
+               # Validar que la cantidad no sea negativa
+            if cantidad < 0:
+                print(" Error: No puedes ingresar un valor negativo de tiempo.")
+                continue
         except ValueError:
             print(" Error: Debes ingresar un número válido.")
             continue
