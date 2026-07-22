@@ -38,3 +38,7 @@ sección informatica:
 * Ivan Quevedo (34.570.333)
 * Santiago Rojas (33.652.368)
 * Hanzer Sivira (32.913.679)
+
+Cambios documentados en: [TO_DO_LIST](public/docs/TO_DO_LIST.md)
+
+Grupo de UPTAG CLI OS.
