@@ -33,7 +33,6 @@ sección informatica:
 
 **Pruebas de cajas y Reingenieria:**
 
-
 * Francisco Garcia (33.251.860)
 * Luis Sanchez (32.630.801)
 * Ivan Quevedo (34.570.333)

@@ -1,7 +1,7 @@
 # Documentacion del main
 
 """
-Modulo principal.
+Modulo convertidor de unidades internacional y anglosajon.
 --- 
 Args:
     None.
@@ -205,9 +205,7 @@ def convertir_unidadan(valor_final, unidad1, unidad2, unidad):
 
     return valor_final
 
-# Main.
-
-def main():
+def convertidor_de_unidades_internacional_y_anglosajon():
     while True:    
 
         # Unidades del sistema internacional (kilometro, hectometro, decametro, metro, decimetro, centimetro, milimetro)
@@ -231,11 +229,11 @@ def main():
         limite_an=limite_is+(len(unidadan)+1)
         limite_op = len(unidadis) + len(unidadan) + 2
         
-        listaUnidad = """
+        listaUnidad = f"""
 Unidades del Sistema Internacional                      Unidades del Sistema Anglosajon
-01|kilometro/km            05|decimetro/dm              08|pulgada/In            11|millas/mi
-02|hectometro/hm           06|centimetro/cm             09|Pies/f                12|Salir
-03|decametro/dam           07|milimetro/mm              10|Yardas/yd  
+01|kilometro/km            05|decimetro/dm              08|pulgada/In           11|millas/mi
+02|hectometro/hm           06|centimetro/cm             09|Pies/f               13|Salir
+03|decametro/dam           07|milimetro/mm              10|Yardas/yd
 04|metro/m
 ----------------------------------------------------------------------------------------------------
 """
@@ -340,4 +338,4 @@ parametro1=1, parametro2=2, tipo=1)
 ### Comprobación de main ###
 
 if __name__ == "__main__":
-    main()
+    print("ERROR CORRIENDO COMO MODULO")
