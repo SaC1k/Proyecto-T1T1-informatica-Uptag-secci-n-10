@@ -111,6 +111,8 @@ def convertidor_tiempo():
             break
 
 
-# Iniciar el programa
+# Comprobacion del main
 if __name__ == "__main__":
-    convertidor_tiempo()
+    print(
+        " Error: Este archivo es un MÓDULO y no se puede ejecutar directamente."
+    )
