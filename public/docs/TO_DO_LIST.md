@@ -11,7 +11,7 @@
   ```
 
   (FRANCISCO GARCÍA) | COMO LO SOLUCIONÉ: Refactoricé integralmente el módulo y renombrando el archivo a la convención snake_case sin espacios para corregir fallos de entorno. Modularicé las funciones principales de conversión, eliminé variables redundantes y agregué la comprobación `if __name__ == "__main__":`. Añadí docstrings completos para el módulo y sus funciones, corregí la ortografía en toda la interfaz y unifiqué el diseño visual (UI/UX) en consola. Además, reestructuré la jerarquía de carpetas del proyecto, añadí la licencia, las directrices de seguridad, la asignación de miembros y la configuración de VS Code, e integré el ecosistema de `.git` con workflows, templates, directorio public y automatizaciones de GitHub como Dependabot y CodeQL. (FRANCISCO GARCÍA)
-* [ ] IMPLEMENTACION #2: DESCRIPCION DEL IMPLEMENTACION (NOMBRE) | COMO LO SOLUCIONE (NOMBRE)
+* [X] IMPLEMENTACION #2: SE AGREGO UNA NUEVA FUNCION QUE CALCULA UNIDADES DE TIEMPO PUEDE SER MILISEGUNDOS,SEGUNDOS,MINITOS,HORAS,DIAS,El CODIGO FUNCIONA PIDIENDOLE DATOS AL USUARIO, UNIDAD DE ORIGEN,UNIDAD DESTINO,Y LA CANTIDAD QUE DESEA CONVERTIR,EN VEZ DE UTILIZAR UNA CANTIDAD GRANDE DE FORMULAS SE EMPLEA REGLA DE 3 UTILIZANDO COMO UNIDA BASE LOS SEGUNDOS,-( Luis Sanchez ) 
 * [ ] IMPLEMENTACION #3: DESCRIPCION DEL IMPLEMENTACION (NOMBRE) | COMO LO SOLUCIONE (NOMBRE)
 * [ ] IMPLEMENTACION #4: DESCRIPCION DEL IMPLEMENTACION (NOMBRE) | COMO LO SOLUCIONE (NOMBRE)
 * [ ] IMPLEMENTACION #5: DESCRIPCION DEL IMPLEMENTACION (NOMBRE) | COMO LO SOLUCIONE (NOMBRE)
