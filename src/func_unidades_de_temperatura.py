@@ -108,4 +108,4 @@ def conversion(valor_de_la_temperatura, escala_base, escala_final):
    
 #comprobamos si el archivo se esta ejecutando como modulo
 if __name__ == "__main__":
-     print("ERROR CORRIENDO COMO MODULO")
+    conversor_de_la_temperatura()
