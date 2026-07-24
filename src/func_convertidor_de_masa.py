@@ -1,5 +1,3 @@
-# Documentacion del main
-
 """
 Modulo convertidor de unidades de masa 
 --- 
@@ -16,6 +14,7 @@ Raises:
 
 def mostrar_menu_unidades():
     """Muestra la lista de unidades con su número."""
+
     unidades = [
         "Kilogramos (kg)",
         "Hectogramos (hg)",
@@ -28,13 +27,13 @@ def mostrar_menu_unidades():
         "Libras (lb)",
         "Toneladas cortas (ton)"
     ]
+
     print("\nUnidades de masa disponibles:")
     for i, u in enumerate(unidades, 1):
         print(f"{i}. {u}")
     return unidades
 
 def obtener_opcion_menu(mensaje, opciones_validas):
-   
     """Pide una opción y la valida, repitiendo hasta que sea correcta."""
     
     while True:
@@ -50,7 +49,6 @@ def obtener_opcion_menu(mensaje, opciones_validas):
             print(f"Error inesperado: {e}. Intenta de nuevo.")
 
 def obtener_numero(mensaje):
-    
     """Pide un número (float) y valida que sea correcto."""
     
     while True:
@@ -69,7 +67,6 @@ def obtener_numero(mensaje):
             print(f"Error inesperado: {e}. Intenta de nuevo.")
 
 def obtener_indice_unidad(mensaje, maximo):
-    
     """Pide un número de unidad y valida que esté en el rango."""
     
     while True:
@@ -90,8 +87,7 @@ def obtener_indice_unidad(mensaje, maximo):
         except Exception as e:
             print(f"Error inesperado: {e}. Intenta de nuevo.")
 
-def convertir_masa(valor, unidad_origen, unidad_destino, factores):
-    
+def convertir_masa(valor, unidad_origen, unidad_destino, factores):  
     """pide el valor de origen y lo convierte al valor de destino
     arg:toma el valor anterior y usando el diccionario com valores de conversion a gramos lo lleva hacia la unidad de destino"""
     
@@ -101,9 +97,8 @@ def convertir_masa(valor, unidad_origen, unidad_destino, factores):
         raise ValueError("Unidad no soportada.")
 
 def main():
-    print("=== CONVERSOR DE UNIDADES DE MASA ===\n")
-    
     """muestra y define los factores, valores y unidades que son convertidas"""
+    print("=== CONVERSOR DE UNIDADES DE MASA ===\n")
     
     # Definimos los factores de conversión a GRAMOS (base)
     factores = {
@@ -149,8 +144,10 @@ def main():
         try:
             resultado = convertir_masa(valor, origen, destino, factores)
             print(f"\n✅ {valor} {origen} = {resultado:.6f} {destino}")
+
         except ValueError as e:
             print(f"Error: {e}")
+
         except Exception as e:
             print(f"Error inesperado: {e}")
 
@@ -164,4 +161,6 @@ def main():
             break
 
 if __name__ == "__main__":
-    main()
+    print(
+        " Error: Este archivo es un MÓDULO y no se puede ejecutar directamente."
+    )

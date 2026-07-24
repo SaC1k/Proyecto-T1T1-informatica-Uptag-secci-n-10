@@ -2,20 +2,19 @@
 Módulo de conversiones de tiempo
 ---
 Args:
-   none.
+    None.
 ---
 Returns:
-    none.
+    None.
 ---
 Raises:
-  except: Por si el usuario ingresa un número inválido
+    Except: Por si el usuario ingresa un número inválido
 ---
 
 Este módulo proporciona una interfaz interactiva de consola para realizar
 conversiones entre distintas unidades de tiempo (milisegundos, segundos,
 minutos, horas y días) utilizando los segundos como unidad base intermediaria.
 """
-
 
 def convertidor_tiempo():
     """
@@ -30,13 +29,13 @@ def convertidor_tiempo():
         5. Muestra el resultado y consulta al usuario si desea continuar o salir.
 
     Args:
-       none.
+        None.
     ---
     Returns:
-        none.
+        None.
     ---
     Raises:
-      except: Por si el usuario ingresa un número inválido
+        Except: Por si el usuario ingresa un número inválido
     ---
     """
 
@@ -80,7 +79,7 @@ def convertidor_tiempo():
         # Pedir la cantidad a convertir
         try:
             cantidad = float(input("Ingresa la cantidad a convertir: "))
-               # Validar que la cantidad no sea negativa
+            # Validar que la cantidad no sea negativa
             if cantidad <= 0:
                 print(" Error: No puedes ingresar un valor negativo de tiempo o 0 .")
                 continue
@@ -109,7 +108,6 @@ def convertidor_tiempo():
         if otra != "s":
             print("\n¡Gracias por usar el convertidor! Hasta luego.")
             break
-
 
 # Comprobacion del main
 if __name__ == "__main__":

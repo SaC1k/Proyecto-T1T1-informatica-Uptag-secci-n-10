@@ -11,6 +11,7 @@ Raises:
     None.
 --- 
 """
+
 def validar_mayor_cero(mensaje):
     """
     Solicita un número flotante y se asegura de que sea mayor a cero.
@@ -25,6 +26,7 @@ def validar_mayor_cero(mensaje):
         ValueError: Si ocurre un error al intentar convertir la entrada a float.
     ---
     """
+
     while True:
         try:
             valor = float(input(mensaje))
@@ -50,6 +52,7 @@ def conversor_de_volumen():
         None.
     ---
     """
+
     # Factores de conversión a litros
     factores = {
         "1": ("ml", 0.001, "Mililitros"),
@@ -81,8 +84,10 @@ def conversor_de_volumen():
         11. galones  (gal)
         12. Salir""")
         print("="*90)
+
         # Elegir opción de origen
         origen = input("Selecciona la unidad de ORIGEN (1-12): ").strip()
+
         if origen == "12":
             print("\nSaliste del programa")
             break
@@ -96,8 +101,10 @@ def conversor_de_volumen():
         if destino not in factores:
             print(" Opción inválida. Intenta de nuevo.")
             continue
+
         #el usuario ingresa la cantidad que desea convertir y se comprueba que sea valida
         cantidad_origen=validar_mayor_cero("Ingresa la cantidad a convertir: ")
+
         # Realizar el cálculo
         # 1. Pasamos a litros
         litros = cantidad_origen * factores[origen][1]
@@ -107,14 +114,19 @@ def conversor_de_volumen():
         # Mostrar resultado
         simbolo_origen = factores[origen][0]
         simbolo_destino = factores[destino][0]
+
         print(
             f"\n RESULTADO: {cantidad_origen} {simbolo_origen} = {resultado:.4f} {simbolo_destino}"
         )
+
         # Se pregunta al usuario si desea realizar otra conversion
         continuar = input("Desea continuar (s/n): ").lower()
         if continuar != "s":
             print("Saliste del programa")
             break
+
 ### Comprobación de main ###
 if __name__ == "__main__":
-    print("ERROR CORRIENDO COMO MODULO")
+    print(
+        " Error: Este archivo es un MÓDULO y no se puede ejecutar directamente."
+    )

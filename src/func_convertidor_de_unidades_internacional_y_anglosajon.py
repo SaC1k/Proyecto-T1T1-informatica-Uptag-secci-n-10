@@ -1,5 +1,3 @@
-# Documentacion del main
-
 """
 Modulo convertidor de unidades internacional y anglosajon.
 --- 
@@ -13,14 +11,6 @@ Raises:
     Exception: Si ocurre un error inesperado.
 --- 
 """
-
-# Importacion de librerias y modulos.
-
-import sys
-import time
-import os
-import platform
-import random
 
 def validar_entrada(mensaje, parametro1, parametro2, tipo):
     """
@@ -231,8 +221,8 @@ def convertidor_de_unidades_internacional_y_anglosajon():
         
         listaUnidad = f"""
 Unidades del Sistema Internacional                          Unidades del Sistema Anglosajon
-01 | Kilometro/km            05 | Decimetro/dm              08 | Pulgada/In           11 | Millas/mi
-02 | Hectometro/hm           06 | Centimetro/cm             09 | Pies/f               12 | Salir del Convertidor de unidades de longitud.
+01 | Kilometro/km            05 | Decimetro/dm              08 | Pulgada/In         11 | Millas/mi
+02 | Hectometro/hm           06 | Centimetro/cm             09 | Pies/f             12 | Salir del Convertidor de unidades de longitud.
 03 | Decametro/dam           07 | Milimetro/mm              10 | Yardas/yd
 04 | Metro/m
 ----------------------------------------------------------------------------------------------------
@@ -252,8 +242,6 @@ Unidades del Sistema Internacional                          Unidades del Sistema
         sufijoEntrada = devolver_cadena(cadena= sufijoEntrada, cadenaIs= sufijoIs, cadenaAn= sufijoAn)
         
         unidadSalida = sufijoSalida = nombreSalida = validar_entrada(mensaje=listaUnidad+"\nDe "+nombreEntrada+" a cual otra unidad la desea convertir: ", parametro1=1, parametro2=limite_op, tipo=1)
-        
-        print("-"*100)
 
         if unidadSalida == limite_op:
             break
@@ -329,4 +317,6 @@ parametro1=1, parametro2=2, tipo=1)
 ### Comprobación de main ###
 
 if __name__ == "__main__":
-    print("ERROR CORRIENDO COMO MODULO")
+    print(
+        " Error: Este archivo es un MÓDULO y no se puede ejecutar directamente."
+    )

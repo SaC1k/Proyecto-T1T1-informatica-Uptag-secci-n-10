@@ -2,13 +2,13 @@
 Módulo de conversiones de temperatura
 ---
 Args:
-   none.
+    None.
 ---
 Returns:
-    none.
+    None.
 ---
 Raises:
-  except: Por si el usuario ingresa un número inválido en la consola
+    Except: Por si el usuario ingresa un número inválido en la consola
 ---
 
 Este módulo proporciona una interfaz interactiva de consola para realizar
@@ -17,7 +17,6 @@ y Kelvin) utilizando fórmulas matemáticas correspondientes.
 """
 
 def conversor_de_la_temperatura():
-
     """
         Interfaz principal del conversor de temperatura
         ---
@@ -103,9 +102,8 @@ def conversion(valor_de_la_temperatura, escala_base, escala_final):
     else:
         return valor_de_la_temperatura
 
-
-
-   
 #comprobamos si el archivo se esta ejecutando como modulo
 if __name__ == "__main__":
-    conversor_de_la_temperatura()
+    print(
+        " Error: Este archivo es un MÓDULO y no se puede ejecutar directamente."
+    )

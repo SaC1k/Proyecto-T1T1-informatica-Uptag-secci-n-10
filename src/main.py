@@ -19,7 +19,10 @@ Raises:
 import sys
 import os
 import func_convertidor_de_unidades_internacional_y_anglosajon
-
+import func_conversor_de_volumen
+import func_convertidor_de_masa
+import func_unidades_de_temperatura
+import func_unidades_tiempo
 
 def main():
     """
@@ -60,8 +63,8 @@ def main():
     while True:
 
         os.system('cls' if os.name == 'nt' else 'clear')
-        print("=" * 140)
-        print("MENU DE OPCIONES DEL CONVERTIDOR".center(140))
+        print("=" * 100)
+        print("MENU DE OPCIONES DEL CONVERTIDOR".center(100))
 
         opciones = [
             "Convertidor de Longitud",     # 1 - Implementado
@@ -72,7 +75,7 @@ def main():
             "Salir del Programa"           # 6 - Salida
         ]
 
-        print("=" * 140)
+        print("=" * 100)
         print(r"""
   __  __                        _                         _                       
  |  \/  |                      | |                       (_)                      
@@ -102,28 +105,19 @@ def main():
                 print(f"\nSeleccionó la opción: {opciones[opcion_usuario]}.")
 
             if opcion_usuario == 0:
-                # Módulo de Longitud (Ya existente)
                 func_convertidor_de_unidades_internacional_y_anglosajon.convertidor_de_unidades_internacional_y_anglosajon()
 
             elif opcion_usuario == 1:
-                # Módulo de Masa (Placeholder)
-                print("\n[!] El Convertidor de Masa aún no está disponible.")
-                # func_convertidor_masa.convertidor_masa()
+                func_convertidor_de_masa.main()
 
             elif opcion_usuario == 2:
-                # Módulo de Volumen (Placeholder)
-                print("\n[!] El Convertidor de Volumen aún no está disponible.")
-                # func_convertidor_volumen.convertidor_volumen()
+                func_conversor_de_volumen.conversor_de_volumen()
 
             elif opcion_usuario == 3:
-                # Módulo de Temperatura (Placeholder)
-                print("\n[!] El Convertidor de Temperatura aún no está disponible.")
-                # func_convertidor_temperatura.convertidor_temperatura()
+                func_unidades_de_temperatura.conversor_de_la_temperatura()
 
             elif opcion_usuario == 4:
-                # Módulo de Tiempo (Placeholder)
-                print("\n[!] El Convertidor de Tiempo aún no está disponible.")
-                # func_convertidor_tiempo.convertidor_tiempo()
+                func_unidades_tiempo.convertidor_tiempo()
 
             elif opcion_usuario == 5:
                 # Salir
