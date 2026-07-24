@@ -1,5 +1,5 @@
 """
-Módulo para la conversión de unidades de masa mediante un menú interactivo.
+Módulo para la conversión de unidades de volumen mediante un menú interactivo.
 --- 
 Args:
     None.
@@ -35,10 +35,10 @@ def validar_mayor_cero(mensaje):
         except ValueError:
             print("Error: Introduzca un número válido.")
 
-def conversor_de_masa():
+def conversor_de_volumen():
     """
     Despliega un menú interactivo en consola para convertir valores entre diferentes
-    unidades de masa (métricas e imperiales) usando el gramo como unidad base.
+    unidades de volumen (métricas e imperiales) usando el litro como unidad base.
     ---
     Args:
         None.
@@ -50,35 +50,35 @@ def conversor_de_masa():
         None.
     ---
     """
-    # Factores de conversión a gramos
+    # Factores de conversión a litros
     factores = {
-        "1": ("mg", 0.001, "Miligramos"),
-        "2": ("cg", 0.01, "Centigramos"),
-        "3": ("dg", 0.1, "Decigramos"),
-        "4": ("g", 1.0, "Gramos"),
-        "5": ("dag", 10.0, "Decagramos"),
-        "6": ("hg", 100.0, "Hectogramos"),
-        "7": ("kg", 1000.0, "Kilogramos"),
-        "8": ("oz", 28.349523125, "Onzas"),
-        "9": ("lb", 453.59237, "Libras"),
-        "10": ("st", 6350.29318, "Stone"),
-        "11": ("ton", 907184.74, "Toneladas cortas "),
+        "1": ("ml", 0.001, "Mililitros"),
+        "2": ("cl", 0.01, "Centilitros"),
+        "3": ("dl", 0.1, "Decilitros"),
+        "4": ("l", 1.0, "litros"),
+        "5": ("dal", 10.0, "Decalitros"),
+        "6": ("hl", 100.0, "Hectolitros"),
+        "7": ("kl", 1000.0, "Kilolitros"),
+        "8": ("fl oz", 0.0284130625, "Onzas liquidas"),
+        "9": ("cups", 0.284130625, "Tazas"),
+        "10": ("pt", 0.56826125, "pintas"),
+        "11": ("gal", 4.54609, "galones"),
     }
     # Se muestra el menu de unidades
     while True:
         print("="*90)
         print("""
-        1. Miligramos (mg)
-        2. Centigramos (cg)
-        3. Decigramos (dg)
-        4. Gramos (g)
-        5. Decagramos (dag)
-        6. Hectogramos (hg)
-        7. Kilogramos (kg)
-        8. Onzas (oz)
-        9. Libras (lb)
-        10. Stone (st)
-        11. Toneladas cortas (ton)
+        1. Mililitros (ml)
+        2. Centilitros (cl)
+        3. Decilitros (dl)
+        4. litros (l)
+        5. Decalitros (dal)
+        6. Hectolitros (hl)
+        7. Kilolitros (kl)
+        8. Onzas liquidas (fl oz)
+        9. Tazas (cups)
+        10. pintas (pt)
+        11. galones  (gal)
         12. Salir""")
         print("="*90)
         # Elegir opción de origen
@@ -99,10 +99,10 @@ def conversor_de_masa():
         #el usuario ingresa la cantidad que desea convertir y se comprueba que sea valida
         cantidad_origen=validar_mayor_cero("Ingresa la cantidad a convertir: ")
         # Realizar el cálculo
-        # 1. Pasamos a gramos
-        gramos = cantidad_origen * factores[origen][1]
-        # 2. Convertimos de gramos a la unidad destino
-        resultado = gramos / factores[destino][1]
+        # 1. Pasamos a litros
+        litros = cantidad_origen * factores[origen][1]
+        # 2. Convertimos de litros a la unidad destino
+        resultado = litros / factores[destino][1]
 
         # Mostrar resultado
         simbolo_origen = factores[origen][0]
@@ -118,3 +118,4 @@ def conversor_de_masa():
 ### Comprobación de main ###
 if __name__ == "__main__":
     print("ERROR CORRIENDO COMO MODULO")
+    conversor_de_volumen()
